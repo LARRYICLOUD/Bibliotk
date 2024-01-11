@@ -37,6 +37,34 @@ namespace Bibliotk
                 Console.WriteLine(elemento);
             }
 
+            //Mostrando la informacion de la clase "Biblioteca"
+            Console.WriteLine("\n---------------------------------\n");
+            Console.WriteLine($"El nombre completo del tipo es: {tipoDatoClass.FullName}");
+
+            //Matrices donde se guardara la informacion devuelta por los metodos "GetProperties" y "GetMethods"
+            MethodInfo[] metodosDatoClass; //Para los metodos
+            PropertyInfo[] propiedadesDatoClass; //para las propiedades
+
+            //Usamos a "GetProperties" para obtener la informacion de las propiedades de nuestra  clase, y almacenamos su devolucin en la matriz "´propiedadesDatoClass"
+            propiedadesDatoClass = tipoDatoClass.GetProperties();
+
+            //usamos a "GetMethods" para obtener la informacion de los metodos de nuestra clase, y almacenamos su devolucion en la matriz "metodosDatoClass"
+            metodosDatoClass = tipoDatoClass.GetMethods();
+
+            //Recorriendo a la matriz "PropiedadesSDatoClass" para mostrar a las propiedaddes de  "Biblioteca"
+            Console.WriteLine("Propiedades del tipo:\n");
+            foreach (PropertyInfo elemento in propiedadesDatoClass)
+            {
+                Console.WriteLine(elemento);
+            }
+            //recorrido a la matriz "MetodosDatoClass" para mostrar  a los metodos de "Biblioteca"
+            Console.WriteLine("Metos delo tipo:\n");
+            foreach (MethodInfo elemento in metodosDatoClass)
+            {
+                Console.WriteLine(elemento);
+            }
+
+
             
 
 
@@ -52,6 +80,13 @@ namespace Bibliotk
         string buscarLibro;
         bool libroEncontrado;
         int posicionLibroEliminar;
+
+        public Libro[] Libros { get => libros; set => libros = value; }
+        public int CantidadLibros { get => cantidadLibros; set => cantidadLibros = value; }
+        public string BuscarLibro1 { get => buscarLibro; set => buscarLibro = value; }
+        public bool LibroEncontrado { get => libroEncontrado; set => libroEncontrado = value; }
+        public int PosicionLibroEliminar { get => posicionLibroEliminar; set => posicionLibroEliminar = value; }
+
 
         //Constructor
         public Biblioteca() //Constructor siempre debe ser publico para poder acceder a el
